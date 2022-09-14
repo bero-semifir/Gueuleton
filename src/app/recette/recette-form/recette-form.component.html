@@ -1,0 +1,17 @@
+<h1>Ajouter une recette</h1>
+
+<form [formGroup]="form" (ngSubmit)="handleSubmit()">
+    <div>
+        <label for="nom">Nom</label>
+        <input id="nom" type="text" formControlName="nom">
+    </div>
+    <!-- <div>
+        <label for="ingredient">Ingrédients</label>
+        <input id="ingredient" type="text" formControlName="ingredients">
+    </div> -->
+    <div>
+        <label for="temps_prepa">Temps de préparation (en minutes)</label>
+        <input id="temps_prepa" type="number" formControlName="temps_preparation_minute">
+    </div>
+    <button type="submit" [disabled]="!this.form.valid">Ajouter</button>
+</form>

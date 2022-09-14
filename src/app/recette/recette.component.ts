@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RecetteService } from '../services/recette.service';
+import { Recette } from './models/recette';
 
 @Component({
   selector: 'app-recette',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecetteComponent implements OnInit {
 
-  constructor() { }
+  recettes: Recette[] = [];
+  afficher: boolean = true;
+
+  constructor(private recetteService: RecetteService) { }
 
   ngOnInit(): void {
+    this.recetteService.getRecettes().subscribe((recettes) => {
+      console.log(recettes);
+      this.recettes = recettes;
+    })
+  }
+
+  handleClick() {
+    alert('Affichage des recettes !')
   }
 
 }

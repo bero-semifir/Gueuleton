@@ -1,1 +1,11 @@
-<p>recette works!</p>
+<h1 (click)="handleClick()">Liste des recettes</h1>
+
+<p [hidden]="!afficher">Affichage !</p>
+
+<div *ngFor="let recette of recettes">
+    <h2>{{ recette.nom }}</h2>
+    <p>Temps de préparation: {{ recette.temps_preparation_minute }} minute(s)</p>
+    <ul>
+        <li *ngFor="let ingredient of recette.ingredients">{{ ingredient }}</li>
+    </ul>
+</div>
